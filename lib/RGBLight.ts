@@ -4,19 +4,21 @@ import { ColorPins } from "./util/Color";
 
 export class RGBLight {
   led: any
-  board: any
   color: Color
   pins: ColorPins
 
-  constructor(board: any, color: Color, colorPins: ColorPins) {
-    this.color = color;
+  constructor(color: Color, colorPins: ColorPins) {
+    let self = this;
 
-    board.on("ready", () => {
-      let led = new five.Led.RGB({ "pins": colorPins });
-      console.log("hex", color.hex);
-      led.color(color.hex);
-    })
+    self.color = color;
+    self.led = new five.Led.RGB({ "pins": colorPins });
+    self.led.color(color.hex);
+  }
+
+  changeColor(color: Color) {
+    let self = this;
     
+    self.led.color(color.hex);
   }
 
 }

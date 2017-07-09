@@ -9,7 +9,7 @@ export class Color {
 
   constructor(red: number, green: number, blue: number, alpha?: number) {
     let self = this;
-
+    
     self.red = red;
     self.green = green;
     self.blue = blue;

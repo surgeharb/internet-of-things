@@ -6,13 +6,20 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsc",
+    "start": "node index",
+    "restart": "npm run build && node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Serge Harb",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
     "johnny-five": "^0.11.3",
+    "jquery": "^3.2.1",
+    "path": "^0.12.7",
     "rgb-hex": "^2.1.0"
   },
   "devDependencies": {

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Color Picker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <table style="width:100%">
+    <tbody>
+      <tr>
+        <th>Red</th>
+        <th>Green</th>
+        <th>Blue</th>
+      </tr>
+      <tr>
+        <td id="valRed">0</td>
+        <td id="valGreen">0</td>
+        <td id="valBlue">0</td>
+      </tr>
+      <tr>
+        <td id="red" style="height:50px;background-color:red"></td>
+        <td id="green" style="background-color:green"></td>
+        <td id="blue" style="background-color:blue"></td>
+      </tr>
+      <tr>
+        <td>
+          <input oninput="changeRed(this.value)" onchange="changeRed(this.value)" type="range" id="slideRed" name="slideRed" min="0" max="255">
+        </td>
+        <td>
+          <input oninput="changeGreen(this.value)" onchange="changeGreen(this.value)" type="range" id="slideGreen" name="slideGreen" min="0" max="255">
+        </td>
+        <td>
+          <input oninput="changeBlue(this.value)" onchange="changeBlue(this.value)" type="range" id="slideBlue" name="slideBlue" min="0" max="255">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="change" style="height: 50px"></div>
+  <script src="./jquery.js"></script>
+  <script src="./main.js"></script>
+</body>
+
+</html>
