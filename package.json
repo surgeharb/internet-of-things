@@ -1,14 +1,22 @@
 {
   "name": "rgb-light",
   "version": "0.0.1",
-  "main": "app.js",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Serge Harb",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "johnny-five": "^0.11.3"
+    "johnny-five": "^0.11.3",
+    "rgb-hex": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.9",
+    "typescript": "^2.4.1"
   }
 }
