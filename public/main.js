@@ -41,4 +41,3 @@ let changeBlue = number => {
 changeRed(red);
 changeGreen(green);
 changeBlue(blue);
-update();

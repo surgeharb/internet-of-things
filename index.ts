@@ -6,6 +6,7 @@ import * as path from "path";
 
 import { Color } from "./lib/util/Color";
 import { RGBLight } from "./lib/RGBLight";
+import * as CONFIG from "./config/configuration";
 
 dotenv.config();
 const app = express();
@@ -15,7 +16,7 @@ const host = 'Server running on PORT *' + process.env.PORT;
 
 let board = new five.Board();
 board.on("ready", () => {
-  let led = new RGBLight(new Color(0, 0, 0), { "red": 11, "green": 10, "blue": 9 });
+  let led = new RGBLight(new Color(0, 0, 0), CONFIG.RGBLed.pins);
   app.route("/led/color").post((request, response, next) => {
     let red: number = parseInt(request.body.red) || 0;
     let green: number = parseInt(request.body.green) || 0;

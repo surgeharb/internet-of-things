@@ -7,6 +7,7 @@ var dotenv = require("dotenv");
 var path = require("path");
 var Color_1 = require("./lib/util/Color");
 var RGBLight_1 = require("./lib/RGBLight");
+var CONFIG = require("./config/configuration");
 dotenv.config();
 var app = express();
 app.use(bodyParser.json());
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ "extended": true }));
 var host = 'Server running on PORT *' + process.env.PORT;
 var board = new five.Board();
 board.on("ready", function () {
-    var led = new RGBLight_1.RGBLight(new Color_1.Color(0, 0, 0), { "red": 11, "green": 10, "blue": 9 });
+    var led = new RGBLight_1.RGBLight(new Color_1.Color(0, 0, 0), CONFIG.RGBLed.pins);
     app.route("/led/color").post(function (request, response, next) {
         var red = parseInt(request.body.red) || 0;
         var green = parseInt(request.body.green) || 0;
