@@ -5,11 +5,6 @@ import * as express from "express";
 import * as dotenv from "dotenv";
 import * as path from "path";
 
-//classes
-import { Color } from "./lib/util/Color";
-import { RGBLight } from "./lib/RGBLight";
-import * as CONFIG from "./config/configuration";
-
 //devices
 import { rgbled } from "./devices/rgbled";
 
