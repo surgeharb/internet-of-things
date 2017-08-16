@@ -8,6 +8,7 @@ var dotenv = require("dotenv");
 var path = require("path");
 //devices
 var rgbled_1 = require("./devices/rgbled");
+var matrix_1 = require("./devices/matrix");
 var device = "";
 if (typeof process.argv[2] == "undefined") {
     device = "";
@@ -30,6 +31,9 @@ if (device) {
             case "rgbled":
                 rgbled_1.rgbled(app);
                 app.use("/", express.static(path.join(__dirname, '../views/rgbled')));
+                break;
+            case "matrix":
+                matrix_1.matrix(app);
                 break;
             default:
                 console.log("Error: invalid device specified");
