@@ -6,7 +6,7 @@ import * as CONFIG from "../config/configuration";
 /**
  * Initialize RGBLed module
  *
- * @param app - express router
+ * @param router - express router
  */
 export let rgbled = router => {
   let led = new RGBLight(new Color(0, 0, 0), CONFIG.RGBLed.pins);

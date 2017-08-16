@@ -7,6 +7,7 @@ import * as path from "path";
 
 //devices
 import { rgbled } from "./devices/rgbled";
+import { matrix } from "./devices/matrix";
 
 let device: string = "";
 if (typeof process.argv[2] == "undefined") {
@@ -23,7 +24,7 @@ const host = 'Server running on PORT *' + process.env.PORT;
 
 if (device) {
   let board = new five.Board();
-  board.on("ready", () => {
+  board.on("ready", function() {
     
     app.listen(process.env.PORT, () => {
       console.log(host);
@@ -33,6 +34,9 @@ if (device) {
       case "rgbled":
         rgbled(app);
         app.use("/", express.static(path.join(__dirname, '../views/rgbled')))
+        break;
+      case "matrix":
+        matrix(app);
         break;
       default:
         console.log("Error: invalid device specified");

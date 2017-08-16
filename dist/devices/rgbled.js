@@ -7,7 +7,7 @@ var CONFIG = require("../config/configuration");
 /**
  * Initialize RGBLed module
  *
- * @param app - express router
+ * @param router - express router
  */
 exports.rgbled = function (router) {
     var led = new RGBLight_1.RGBLight(new Color_1.Color(0, 0, 0), CONFIG.RGBLed.pins);
