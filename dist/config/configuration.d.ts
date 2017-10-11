@@ -5,3 +5,12 @@ export declare let RGBLed: {
         "blue": number;
     };
 };
+export declare let DiscoLeds: {
+    pins: {
+        "red": number;
+        "blue": number;
+        "green": number;
+        "white": number;
+        "yellow": number;
+    };
+};

@@ -1,14 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//modules
+// modules
 var bodyParser = require("body-parser");
 var five = require("johnny-five");
 var express = require("express");
 var dotenv = require("dotenv");
 var path = require("path");
-//devices
+// devices
+var disco_1 = require("./devices/disco");
 var rgbled_1 = require("./devices/rgbled");
 var matrix_1 = require("./devices/matrix");
+var traffic_1 = require("./devices/traffic");
 var device = "";
 if (typeof process.argv[2] == "undefined") {
     device = "";
@@ -31,6 +33,12 @@ if (device) {
             case "rgbled":
                 rgbled_1.rgbled(app);
                 app.use("/", express.static(path.join(__dirname, '../views/rgbled')));
+                break;
+            case "disco":
+                disco_1.disco(app);
+                break;
+            case "traffic":
+                traffic_1.traffic(app);
                 break;
             case "matrix":
                 matrix_1.matrix(app);

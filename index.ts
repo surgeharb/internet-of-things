@@ -1,13 +1,15 @@
-//modules
+// modules
 import * as bodyParser from "body-parser";
 import * as five from "johnny-five";
 import * as express from "express";
 import * as dotenv from "dotenv";
 import * as path from "path";
 
-//devices
+// devices
+import { disco } from "./devices/disco";
 import { rgbled } from "./devices/rgbled";
 import { matrix } from "./devices/matrix";
+import { traffic } from "./devices/traffic";
 
 let device: string = "";
 if (typeof process.argv[2] == "undefined") {
@@ -28,12 +30,18 @@ if (device) {
     
     app.listen(process.env.PORT, () => {
       console.log(host);
-    })
+    });
 
     switch (device) {
       case "rgbled":
         rgbled(app);
         app.use("/", express.static(path.join(__dirname, '../views/rgbled')))
+        break;
+      case "disco":
+        disco(app);
+        break;
+      case "traffic":
+        traffic(app);
         break;
       case "matrix":
         matrix(app);
@@ -42,7 +50,7 @@ if (device) {
         console.log("Error: invalid device specified");
         break;
     }
-    
+
   })
 } else {
   console.log("Error: no device specified");
