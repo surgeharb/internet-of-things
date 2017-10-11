@@ -29,6 +29,7 @@ exports.traffic = function (router) {
             }, 1000);
         }, 4000);
     };
+    // make infinite interval every 10 seconds starting at 0
     trafficLights();
     setInterval(function () {
         trafficLights();

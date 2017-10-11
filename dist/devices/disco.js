@@ -27,6 +27,8 @@ exports.disco = function (router) {
     var interval = createInterval(delay);
     setInterval(function () {
         delay = Math.random() * 3000;
+        var tempInterval = interval;
         interval = createInterval(delay);
+        clearInterval(tempInterval);
     }, 2000);
 };

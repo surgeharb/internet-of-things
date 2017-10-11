@@ -5,7 +5,7 @@ var RGBLight = (function () {
     function RGBLight(color, colorPins) {
         var self = this;
         self.color = color;
-        self.led = new five.Led.RGB({ "pins": colorPins });
+        self.led = new five.Led.RGB({ 'pins': colorPins });
         self.led.color(color.hex);
     }
     RGBLight.prototype.changeColor = function (color) {

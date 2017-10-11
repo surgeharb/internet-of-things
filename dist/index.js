@@ -9,11 +9,10 @@ var path = require("path");
 // devices
 var disco_1 = require("./devices/disco");
 var rgbled_1 = require("./devices/rgbled");
-var matrix_1 = require("./devices/matrix");
 var traffic_1 = require("./devices/traffic");
-var device = "";
-if (typeof process.argv[2] == "undefined") {
-    device = "";
+var device = '';
+if (typeof process.argv[2] === undefined) {
+    device = '';
 }
 else {
     device = process.argv[2];
@@ -21,34 +20,31 @@ else {
 dotenv.config();
 var app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ "extended": true }));
-var host = 'Server running on PORT *' + process.env.PORT;
+app.use(bodyParser.urlencoded({ 'extended': true }));
+var host = "Server running on PORT *" + process.env.PORT;
 if (device) {
     var board = new five.Board();
-    board.on("ready", function () {
+    board.on('ready', function () {
         app.listen(process.env.PORT, function () {
             console.log(host);
         });
         switch (device) {
-            case "rgbled":
+            case 'rgbled':
                 rgbled_1.rgbled(app);
-                app.use("/", express.static(path.join(__dirname, '../views/rgbled')));
+                app.use('/', express.static(path.join(__dirname, '../views/rgbled')));
                 break;
-            case "disco":
+            case 'disco':
                 disco_1.disco(app);
                 break;
-            case "traffic":
+            case 'traffic':
                 traffic_1.traffic(app);
                 break;
-            case "matrix":
-                matrix_1.matrix(app);
-                break;
             default:
-                console.log("Error: invalid device specified");
+                console.log('Error: invalid device specified');
                 break;
         }
     });
 }
 else {
-    console.log("Error: no device specified");
+    console.log('Error: no device specified');
 }

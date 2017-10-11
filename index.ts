@@ -8,7 +8,6 @@ import * as path from 'path';
 // devices
 import { disco } from './devices/disco';
 import { rgbled } from './devices/rgbled';
-import { matrix } from './devices/matrix';
 import { traffic } from './devices/traffic';
 
 let device: string = '';

@@ -1,5 +1,5 @@
-import { Color } from "./util/Color";
-import { ColorPins } from "./util/Color";
+import { Color } from './util/Color';
+import { ColorPins } from './util/Color';
 export declare class RGBLight {
     led: any;
     color: Color;
