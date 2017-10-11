@@ -1,5 +1,5 @@
-import * as five from "johnny-five";
-import { DiscoLeds } from "../config/configuration";
+import * as five from 'johnny-five';
+import { DiscoLeds } from '../config/configuration';
 
 /**
  * Initialize Disco module
@@ -31,7 +31,9 @@ export let disco = router => {
 
   setInterval(() => {
     delay = Math.random() * 3000;
+    let tempInterval = interval;
     interval = createInterval(delay);
+    clearInterval(tempInterval);    
   }, 2000);
 
 }

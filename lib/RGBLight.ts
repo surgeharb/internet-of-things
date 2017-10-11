@@ -1,6 +1,6 @@
-import * as five from "johnny-five";
-import { Color } from "./util/Color";
-import { ColorPins } from "./util/Color";
+import * as five from 'johnny-five';
+import { Color } from './util/Color';
+import { ColorPins } from './util/Color';
 
 export class RGBLight {
   led: any
@@ -11,7 +11,7 @@ export class RGBLight {
     let self = this;
 
     self.color = color;
-    self.led = new five.Led.RGB({ "pins": colorPins });
+    self.led = new five.Led.RGB({ 'pins': colorPins });
     self.led.color(color.hex);
   }
 

@@ -9,21 +9,23 @@ export class Color {
 
   constructor(red: number, green: number, blue: number, alpha?: number) {
     let self = this;
-    
+    let hexcode = '';
+
     self.red = red;
     self.green = green;
     self.blue = blue;
 
-    if (typeof alpha == "undefined") {
+    if (alpha === undefined) {
       alpha = 1;
     }
-    
+
     if (alpha == 1) {
-      self.hex = "#" + rgbHex(red, green, blue); 
+      hexcode = rgbHex(red, green, blue);
     } else {
-      self.hex = "#" + rgbHex(red, green, blue, alpha);
+      hexcode = rgbHex(red, green, blue, alpha);
     }
 
+    self.hex = `#${hexcode}`;
   }
 
 }

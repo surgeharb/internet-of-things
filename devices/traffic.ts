@@ -1,5 +1,5 @@
-import * as five from "johnny-five";
-import { DiscoLeds } from "../config/configuration";
+import * as five from 'johnny-five';
+import { DiscoLeds } from '../config/configuration';
 
 /**
  * Initialize TrafficLight module
@@ -31,8 +31,10 @@ export let traffic = router => {
         redLed.on();
       }, 1000);
     }, 4000);
-  }
+  };
 
+
+  // make infinite interval every 10 seconds starting at 0
   trafficLights();
   setInterval(() => {
     trafficLights();
